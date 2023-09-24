@@ -1,10 +1,21 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2xtazhnZjV5MDAzMDJqcWdpdTA2ZTEybCJ9.wO3ACIXuLN3bZcQQVQs5Pg';
+// DON'T. TAMPER. WITH. THE. KEY.
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/nilayril/clmuiixj402kp01qx7xoogi4a',
     center: [73.014641, 19.126813], // [lng, lat]
     zoom: 9,
     cooperativeGestures: true
+});
+
+map.on('mousemove', (e) => {
+    document.getElementById('mouseCoord').innerHTML =
+        // `e.point` is the x, y coordinates of the `mousemove` event
+        // relative to the top-left corner of the map.
+        JSON.stringify(e.point) +
+        '<br />' +
+        // `e.lngLat` is the longitude, latitude geographical position of the event.
+        JSON.stringify(e.lngLat.wrap());
 });
 
 const coordinatesGeocoder = function (query) {
