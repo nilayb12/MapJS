@@ -1,11 +1,27 @@
+let prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+let html = document.querySelector('html');
+html.classList.add(prefers);
+html.setAttribute('class', prefers);
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2xtazhnZjV5MDAzMDJqcWdpdTA2ZTEybCJ9.wO3ACIXuLN3bZcQQVQs5Pg';
 // DON'T. TAMPER. WITH. THE. KEY.
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/nilayril/clmuiixj402kp01qx7xoogi4a',
     center: [73.014641, 19.126813], // [lng, lat]
-    zoom: 9,
+    zoom: 6,
     cooperativeGestures: true
+});
+
+const csvFileInput = document.querySelector("#csvFileInput");
+csvFileInput.addEventListener("change", (e) => {
+    Papa.parse(csvFileInput.files[0], {
+        complete: function (result) {
+            if (result.data && result.data.length > 0) {
+                htmlTableGen(result.data)
+            }
+        }
+    });
 });
 
 map.on('mousemove', (e) => {
