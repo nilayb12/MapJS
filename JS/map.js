@@ -46,7 +46,7 @@ const coordinatesGeocoder = function (query) {
     // Match anything which looks like
     // decimal degrees coordinate pair.
     const matches = query.match(
-        /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+        /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Long: )?(-?\d+\.?\d*)[ ]*$/i
     );
     if (!matches) {
         return null;
@@ -59,7 +59,7 @@ const coordinatesGeocoder = function (query) {
                 type: 'Point',
                 coordinates: [lng, lat]
             },
-            place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+            place_name: 'Lat: ' + lat + ' Long: ' + lng,
             place_type: ['coordinate'],
             properties: {},
             type: 'Feature'
@@ -93,7 +93,7 @@ map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     localGeocoder: coordinatesGeocoder,
     zoom: 7,
-    placeholder: '[Lat, Lon], [Lon, Lat], Place',
+    placeholder: '[Lat, Long Pair], Place',
     mapboxgl: mapboxgl,
     reverseGeocode: true
 })
@@ -115,7 +115,7 @@ map.addControl(new MapboxGeocoder({
 
 // Set marker options.
 const marker = new mapboxgl.Marker({
-    // color: '#FFFFFF',
+    color: 'blue',
     draggable: false
 }).setLngLat([73.014641, 19.126813]
 ).setPopup(new mapboxgl.Popup({
