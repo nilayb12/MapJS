@@ -3,33 +3,41 @@ let html = document.querySelector('html');
 html.classList.add(prefers);
 html.setAttribute('class', prefers);
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2xtazhnZjV5MDAzMDJqcWdpdTA2ZTEybCJ9.wO3ACIXuLN3bZcQQVQs5Pg';
+mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2x3NmhieTZqMW9sYTJqcGQ3Y2o2Mmd0eCJ9.8cNx9NZ2B0gEMRZVkvuXUg';
 // DON'T. TAMPER. WITH. THE. KEY.
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/nilayril/clmuiixj402kp01qx7xoogi4a',
+    style: 'mapbox://styles/mapbox/standard',
     center: [73.014641, 19.126813], // [lng, lat]
     zoom: 6,
-    cooperativeGestures: true
+    cooperativeGestures: true,
+    attributionControl: true,
+    boxZoom: true,
+    doubleClickZoom: true,
+    dragPan: true,
+    dragRotate: true,
+    interactive: true,
+    keyboard: true,
+    logoPosition: 'bottom-left',
+    scrollZoom: true,
+    trackResize: true
 });
 
-const csvFileInput = document.querySelector("#csvFileInput");
-csvFileInput.addEventListener("change", (e) => {
-    Papa.parse(csvFileInput.files[0], {
-        complete: function (result) {
-            if (result.data && result.data.length > 0) {
-                htmlTableGen(result.data)
-            }
-        }
-    });
+map.on('style.load', () => {
+    map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+    map.setConfigProperty('basemap', 'showPlaceLabels', true);
+    map.setConfigProperty('basemap', 'showRoadLabels', true);
+    map.setConfigProperty('basemap', 'showPointOfInterestLabels', true);
+    map.setConfigProperty('basemap', 'showTransitLabels', true);
+
 });
 
 map.on('mousemove', (e) => {
     document.getElementById('mouseCoord').innerHTML =
         // `e.point` is the x, y coordinates of the `mousemove` event
         // relative to the top-left corner of the map.
-        JSON.stringify(e.point) +
-        '<br />' +
+        // JSON.stringify(e.point) +
+        // '<br />' +
         // `e.lngLat` is the longitude, latitude geographical position of the event.
         JSON.stringify(e.lngLat.wrap());
 });
@@ -81,24 +89,39 @@ const coordinatesGeocoder = function (query) {
     return geocodes;
 };
 
-map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        localGeocoder: coordinatesGeocoder,
-        zoom: 7,
-        placeholder: 'Try: 73.015, 19.126',
-        mapboxgl: mapboxgl,
-        reverseGeocode: true
-    }),
+map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    localGeocoder: coordinatesGeocoder,
+    zoom: 7,
+    placeholder: '[Lat, Lon], [Lon, Lat], Place',
+    mapboxgl: mapboxgl,
+    reverseGeocode: true
+})
+).addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true,
+    showUserHeading: true,
+    showAccuracyCircle: true,
+    showUserLocation: true
+})
+).addControl(new mapboxgl.NavigationControl({
+    showCompass: true,
+    showZoom: true
+})
+).addControl(new mapboxgl.FullscreenControl()
 );
-map.addControl(
-    new mapboxgl.GeolocateControl({
-        positionOptions: {
-            enableHighAccuracy: true
-        },
-        trackUserLocation: true,
-        showUserHeading: true
-    })
-);
-map.addControl(new mapboxgl.NavigationControl());
-map.addControl(new mapboxgl.FullscreenControl());
+
+// Set marker options.
+const marker = new mapboxgl.Marker({
+    // color: '#FFFFFF',
+    draggable: false
+}).setLngLat([73.014641, 19.126813]
+).setPopup(new mapboxgl.Popup({
+    closeButton: true,
+    closeOnClick: true,
+    closeOnMove: false,
+    maxWidth: '300px'
+}).setHTML('<h3 style="color: blue;">Hi</h3>')
+).addTo(map);
