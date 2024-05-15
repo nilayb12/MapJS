@@ -40,7 +40,7 @@
             const marker<?php echo $data['Idx']; ?> = '<h3 style="color: #FF671F;"><?php echo $data['City']; ?></h3>'+
                 '<pre style="color: #046A38;"><?php echo 'Long: ' . $data['Lng'] . ', Lat: ' . $data['Lat']; ?></pre>';
             new mapboxgl.Marker({
-                color: 'blue',
+                color: '#FF671F',
                 draggable: false
             }).setLngLat([<?php echo $data['Lng']; ?>, <?php echo $data['Lat']; ?>]
             ).setPopup(new mapboxgl.Popup({

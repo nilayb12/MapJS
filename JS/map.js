@@ -94,7 +94,7 @@ map.addControl(new MapboxGeocoder({
     countries: 'in',
     localGeocoder: coordinatesGeocoder,
     zoom: 4,
-    placeholder: '[Lat, Long Pair], Place',
+    placeholder: '🇮🇳 Lat/Long Pair, Place',
     mapboxgl: mapboxgl,
     reverseGeocode: true
 })
