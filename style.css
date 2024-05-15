@@ -31,4 +31,21 @@ body {
     padding: 10px 10px 15px;
     pointer-events: auto;
     position: relative;
+
+    .mapboxgl-popup-close-button {
+        visibility: hidden;
+    }
+
+    .mapboxgl-popup-close-button::after {
+        content: '❌';
+        visibility: visible;
+    }
+
+    .mapboxgl-popup-close-button:hover::after {
+        background-color: rgb(0 0 0 / 5%);
+    }
+}
+
+svg {
+    margin-bottom: .2rem;
 }
