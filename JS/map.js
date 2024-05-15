@@ -91,8 +91,9 @@ const coordinatesGeocoder = function (query) {
 
 map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
+    countries: 'in',
     localGeocoder: coordinatesGeocoder,
-    zoom: 7,
+    zoom: 4,
     placeholder: '[Lat, Long Pair], Place',
     mapboxgl: mapboxgl,
     reverseGeocode: true
@@ -111,10 +112,11 @@ map.addControl(new MapboxGeocoder({
     showZoom: true
 })
 ).addControl(new mapboxgl.FullscreenControl()
+).addControl(new mapboxgl.ScaleControl()
 );
 
 // Set marker options.
-const marker = new mapboxgl.Marker({
+new mapboxgl.Marker({
     color: 'blue',
     draggable: false
 }).setLngLat([73.014641, 19.126813]
