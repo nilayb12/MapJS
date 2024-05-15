@@ -1,3 +1,5 @@
+<?php include ('modules/dbConfig.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +25,27 @@
     <pre id="mouseCoord"></pre>
 
     <script src="JS/map.js"></script>
+    <?php $query = "SELECT * FROM cities";
+    $result = mysqli_query($db, $query);
+
+    while ($data = mysqli_fetch_assoc($result)) {
+        ?>
+        <script type="text/javascript">
+            const marker<?php echo $data['Idx']; ?> = new mapboxgl.Marker({
+                color: 'blue',
+                draggable: false
+            }).setLngLat([<?php echo $data['Lng']; ?>, <?php echo $data['Lat']; ?>]
+            ).setPopup(new mapboxgl.Popup({
+                closeButton: true,
+                closeOnClick: true,
+                closeOnMove: false,
+                maxWidth: '300px'
+            }).setHTML('<h3 style="color: #FF671F;"><?php echo $data['City']; ?></h3><pre style="color: #046A38;"><?php echo $data['Lng'] . ', ' . $data['Lat']; ?></pre>')
+            ).addTo(map);
+        </script>
+        <?php
+    }
+    ?>
 </body>
 
 </html>
