@@ -1,8 +1,3 @@
-let prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-let html = document.querySelector('html');
-html.classList.add(prefers);
-html.setAttribute('class', prefers);
-
 mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2x3NmhieTZqMW9sYTJqcGQ3Y2o2Mmd0eCJ9.8cNx9NZ2B0gEMRZVkvuXUg';
 // DON'T. TAMPER. WITH. THE. KEY.
 const map = new mapboxgl.Map({
@@ -125,5 +120,5 @@ new mapboxgl.Marker({
     closeOnClick: true,
     closeOnMove: false,
     maxWidth: '300px'
-}).setHTML('<h4><span style="color: #FF671F;">TC</span><span style="color: #06038D;">-</span><span style="color: #046A38;">22</span></h4>')
+}).setHTML('<h5 class="card card-body d-block"><span style="color: #FF671F;">TC</span><span style="color: #06038D;">-</span><span style="color: #046A38;">22</span></h5>')
 ).addTo(map);

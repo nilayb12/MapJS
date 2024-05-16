@@ -1,7 +1,7 @@
 <?php include ('modules/dbConfig.php'); ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -27,6 +27,7 @@
     <script
         src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.2/mapbox-gl-geocoder.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <!-- <script src="JS/colorToggle.js"></script> -->
     <div id='map'></div>
     <pre id="mouseCoord"></pre>
 
@@ -54,10 +55,10 @@
             '</div><div class="card-body">'+
             '<p style="color: #046A38;"><?php echo 'Long: ' . $data['Lng'] . ', Lat: ' . $data['Lat']; ?></p>'+
             '</div>';
-            options<?php echo $data['Idx']; ?>.innerHTML = '<div class="btn-group">'+
-            '<button class="btn btn-outline-primary btn-sm" id="lng<?php echo $data['Idx']; ?>" title="Copy Longitude">'+
+            options<?php echo $data['Idx']; ?>.innerHTML = '<div class="btn-group btn-group-sm">'+
+            '<button class="btn btn-outline-primary" id="lng<?php echo $data['Idx']; ?>" title="Copy Longitude">'+
             copyIcon+' Long</button>'+
-            '<button class="btn btn-outline-primary btn-sm" id="lat<?php echo $data['Idx']; ?>" title="Copy Latitude">'+
+            '<button class="btn btn-outline-primary" id="lat<?php echo $data['Idx']; ?>" title="Copy Latitude">'+
             copyIcon+' Lat</button></div>';
             marker<?php echo $data['Idx']; ?>.appendChild(options<?php echo $data['Idx']; ?>);
 
