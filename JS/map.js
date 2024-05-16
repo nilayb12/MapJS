@@ -125,5 +125,5 @@ new mapboxgl.Marker({
     closeOnClick: true,
     closeOnMove: false,
     maxWidth: '300px'
-}).setHTML('<h3><span style="color: #FF671F;">TC</span><span style="color: #06038D;">-</span><span style="color: #046A38;">22</span></h3>')
+}).setHTML('<h4><span style="color: #FF671F;">TC</span><span style="color: #06038D;">-</span><span style="color: #046A38;">22</span></h4>')
 ).addTo(map);
