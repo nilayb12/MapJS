@@ -71,10 +71,8 @@
             // echo 'Long: ' . $data['Lng'] . ', Lat: ' . $data['Lat']; ?></div>';
 
             options<?php echo $data['Idx']; ?>.innerHTML = '<div class="btn-group btn-group-sm">'+
-            '<button class="btn btn-outline-primary" id="lng<?php echo $data['Idx']; ?>" title="Copy Longitude">'+
-            copyIcon+' Long</button>'+
-            '<button class="btn btn-outline-primary" id="lat<?php echo $data['Idx']; ?>" title="Copy Latitude">'+
-            copyIcon+' Lat</button></div>';
+            '<button class="btn btn-outline-primary" id="lng<?php echo $data['Idx']; ?>" title="Copy Longitude">'+copyIcon+' Long</button>'+
+            '<button class="btn btn-outline-primary" id="lat<?php echo $data['Idx']; ?>" title="Copy Latitude">'+copyIcon+' Lat</button></div>';
             marker<?php echo $data['Idx']; ?>.appendChild(options<?php echo $data['Idx']; ?>);
 
             $(document).on('click', '#lng<?php echo $data['Idx']; ?>', function() {
@@ -101,7 +99,7 @@
             });
 
             new mapboxgl.Marker({
-                color: '<?php echo mysqli_num_rows($result1) == 0 ? '#212129' : '#FF671F'; ?>',
+                color: '<?php echo mysqli_num_rows($result1) == 0 ? '#0098e0' : '#FF671F'; ?>',
                 draggable: false
             }).setLngLat([<?php echo $data['Lng']; ?>, <?php echo $data['Lat']; ?>]
             ).setPopup(new mapboxgl.Popup({
