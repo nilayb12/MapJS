@@ -62,7 +62,7 @@
 
             if (mysqli_num_rows($result1) == 0) echo $infoIcon . ' No Servers Installed at this Location.';
             else {
-                echo '<table><thead><tr><th>Mgmt IP</th><th>IPv6</th></tr></thead><tbody>';
+                echo '<table class="table table-bordered table-striped table-hover"><thead><tr><th>Mgmt IP</th><th>IPv6</th></tr></thead><tbody>';
                 while ($data1 = mysqli_fetch_assoc($result1)) {
                 echo '<tr><td>' . inet_ntop(hex2bin($data1['MgmtIP']))  . '</td><td>    ' . inet_ntop(hex2bin($data1['IPv6'])) . '</td></tr>';
                 }
