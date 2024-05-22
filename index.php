@@ -101,7 +101,7 @@
             });
 
             new mapboxgl.Marker({
-                color: '#FF671F',
+                color: '<?php echo mysqli_num_rows($result1) == 0 ? '#212129' : '#FF671F'; ?>',
                 draggable: false
             }).setLngLat([<?php echo $data['Lng']; ?>, <?php echo $data['Lat']; ?>]
             ).setPopup(new mapboxgl.Popup({
