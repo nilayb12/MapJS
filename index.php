@@ -52,9 +52,19 @@
 
             marker<?php echo $data['Idx']; ?>.innerHTML = '<div class="card-header">'+
             '<h5 class="card-title" style="color: #FF671F;"><?php echo $data['City']; ?></h5>'+
-            '</div><div class="card-body">'+
-            '<p style="color: #046A38;"><?php echo 'Long: ' . $data['Lng'] . ', Lat: ' . $data['Lat']; ?></p>'+
-            '</div>';
+            '</div><div class="card-body"><?php $city = $data['City'];
+            $query1 = "SELECT * FROM servers WHERE City = ('$city')";
+            $result1 = mysqli_query($db, $query1);
+
+            if (mysqli_num_rows($result1) == 0) echo 'No Servers Installed at this Location.';
+            else {
+                echo '<table><thead><tr><th>Mgmt IP</th><th>IPv6</th></tr></thead><tbody>';
+                while ($data1 = mysqli_fetch_assoc($result1)) {
+                echo '<tr><td>' . inet_ntop(hex2bin($data1['MgmtIP']))  . '</td><td>    ' . inet_ntop(hex2bin($data1['IPv6'])) . '</td></tr>';
+                }
+                echo '</tbody></table>';
+            }
+            // echo 'Long: ' . $data['Lng'] . ', Lat: ' . $data['Lat']; ?></div>';
             options<?php echo $data['Idx']; ?>.innerHTML = '<div class="btn-group btn-group-sm">'+
             '<button class="btn btn-outline-primary" id="lng<?php echo $data['Idx']; ?>" title="Copy Longitude">'+
             copyIcon+' Long</button>'+
@@ -93,7 +103,7 @@
                 closeButton: true,
                 closeOnClick: true,
                 closeOnMove: false,
-                maxWidth: '180px'
+                maxWidth: '320px'
             }).setDOMContent(marker<?php echo $data['Idx']; ?>)
             ).addTo(map);
             <?php

@@ -46,6 +46,10 @@ body {
     .mapboxgl-popup-close-button:hover::after {
         background-color: rgb(0 0 0 / 5%);
     }
+
+    .card .card-body table {
+        color: #046A38;
+    }
 }
 
 svg {
