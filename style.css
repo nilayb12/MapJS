@@ -47,8 +47,15 @@ body {
         background-color: rgb(0 0 0 / 5%);
     }
 
-    .card .card-body table {
+    .card .table {
         color: #046A38;
+        margin-bottom: 0;
+
+        caption {
+            padding: 0;
+            color: #046A38;
+            text-align: inherit;
+        }
     }
 }
 
