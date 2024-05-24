@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="india.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet"
         href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.2/mapbox-gl-geocoder.css"
         type="text/css">
@@ -23,15 +23,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js'></script>
     <script
         src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.2/mapbox-gl-geocoder.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@mapbox-controls/ruler@1.2.0/src/index.min.js"></script> -->
     <!-- <script src="JS/colorToggle.js"></script> -->
-    <div id='map'></div>
+    <div id="map"></div>
+    <div id="distance" class="distance-container"></div>
     <pre id="mouseCoord"></pre>
 
     <script src="JS/map.js"></script>
+    <script src="JS/ruler.js"></script>
     <script type="text/javascript">
         const copyIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-fill" viewBox="0 0 16 16">'+
         '<path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2"/>'+
@@ -62,8 +65,8 @@
 
             if (mysqli_num_rows($result1) == 0) echo '<div class="card-body">' . $infoIcon . ' No Servers Installed at this Location.' . '</div>';
             else {
-                echo '<table class="card-body table table-sm table-bordered table-striped table-hover">'.
-                '<caption>Click a Data Item to Copy its Value.</caption>'.
+                echo '<table class="card-body table table-sm table-bordered table-striped table-hover table-group-divider">'.
+                '<caption>' . $infoIcon . ' Click a Data Item to Copy its Value.</caption>'.
                 '<thead><tr><th>Mgmt IP</th><th>IPv6</th></tr></thead><tbody class="table-group-divider">';
                 while ($data1 = mysqli_fetch_assoc($result1)) {
                     echo '<tr><td><button class="btn btn-sm" '.

@@ -54,7 +54,7 @@ const coordinatesGeocoder = function (query) {
                 type: 'Point',
                 coordinates: [lng, lat]
             },
-            place_name: 'Lat: ' + lat + ' Long: ' + lng,
+            place_name: 'Long: ' + lng + ' Lat: ' + lat,
             place_type: ['coordinate'],
             properties: {},
             type: 'Feature'
