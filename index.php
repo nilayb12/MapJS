@@ -31,6 +31,27 @@
     <!-- <script src="JS/colorToggle.js"></script> -->
     <div id="map"></div>
     <!-- <div id="distance" class="distance-container"></div> -->
+    <div class="card position-fixed top-0 start-0 mt-2 ms-2">
+        <div class="card-header">
+            <label for="lightPreset">Select Light Preset</label>
+            <select class="form-select" id="lightPreset" name="lightPreset">
+                <option value="dawn">⛅ Dawn</option>
+                <option value="day">☀️ Day</option>
+                <option value="dusk" selected>🌄 Dusk</option>
+                <option value="night">🌙 Night</option>
+            </select>
+        </div>
+        <div class="card-body" id="mapLabels">
+            <input class="form-check-input" type="checkbox" id="showPlaceLabels" checked>
+            <label for="showPlaceLabels">Show Place Labels</label><br>
+            <input class="form-check-input" type="checkbox" id="showPointOfInterestLabels" checked>
+            <label for="showPointOfInterestLabels">Show POI Labels</label><br>
+            <input class="form-check-input" type="checkbox" id="showRoadLabels" checked>
+            <label for="showRoadLabels">Show Road Labels</label><br>
+            <input class="form-check-input" type="checkbox" id="showTransitLabels" checked>
+            <label for="showTransitLabels">Show Transit Labels</label>
+        </div>
+    </div>
     <pre id="mouseCoord"></pre>
 
     <script src="JS/map.js"></script>
@@ -54,11 +75,12 @@
             ?>
             const marker<?php echo $data['Idx']; ?> = document.createElement('div');
             const options<?php echo $data['Idx']; ?> = document.createElement('div');
-            $(marker<?php echo $data['Idx']; ?>).addClass("card");
+            $(marker<?php echo $data['Idx']; ?>).addClass("card text-center");
             $(options<?php echo $data['Idx']; ?>).addClass("card-footer");
 
             marker<?php echo $data['Idx']; ?>.innerHTML = '<div class="card-header">'+
             '<h5 class="card-title" style="color: #FF671F;"><?php echo $data['City']; ?></h5>'+
+            '<span>Long: <?php echo $data['Lng']; ?></span><br><span>Lat: <?php echo $data['Lat']; ?></span>'+
             '</div><?php $city = $data['City'];
             $query1 = "SELECT * FROM servers WHERE City = ('$city')";
             $result1 = mysqli_query($db, $query1);

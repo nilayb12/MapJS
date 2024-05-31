@@ -21,10 +21,20 @@ const map = new mapboxgl.Map({
 map.on('style.load', () => {
     map.setConfigProperty('basemap', 'lightPreset', 'dusk');
     map.setConfigProperty('basemap', 'showPlaceLabels', true);
-    map.setConfigProperty('basemap', 'showRoadLabels', true);
     map.setConfigProperty('basemap', 'showPointOfInterestLabels', true);
+    map.setConfigProperty('basemap', 'showRoadLabels', true);
     map.setConfigProperty('basemap', 'showTransitLabels', true);
 
+});
+
+document.getElementById('lightPreset').addEventListener('change', function () {
+    map.setConfigProperty('basemap', 'lightPreset', this.value);
+});
+
+document.querySelectorAll('#mapLabels input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.addEventListener('change', function () {
+        map.setConfigProperty('basemap', this.id, this.checked);
+    });
 });
 
 map.on('mousemove', (e) => {
