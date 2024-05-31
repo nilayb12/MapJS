@@ -3,6 +3,10 @@ body {
     color: white;
 }
 
+hr {
+    margin: .5rem 0 .5rem 0;
+}
+
 #map {
     height: 97vh;
     width: 100%;
