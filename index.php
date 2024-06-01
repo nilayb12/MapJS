@@ -31,9 +31,23 @@
     <!-- <script src="JS/colorToggle.js"></script> -->
     <div id="map"></div>
     <!-- <div id="distance" class="distance-container"></div> -->
-    <div class="card position-fixed top-0 start-0 mt-2 ms-2">
+    <div class="card position-absolute top-0 start-0 mt-2 ms-2">
         <div class="card-header">
-            <h6>Select Light Preset</h6>
+            <h6 class="card-title">Select Map Style</h6>
+            <select class="form-select" id="mapStyle">
+                <option value="mapbox://styles/mapbox/standard" selected>Standard</option>
+                <option value="mapbox://styles/mapbox/streets-v12">🛣️ Streets</option>
+                <option value="mapbox://styles/mapbox/outdoors-v12">Outdoors</option>
+                <option value="mapbox://styles/mapbox/light-v11">💡 Light</option>
+                <option value="mapbox://styles/mapbox/dark-v11">🌑 Dark</option>
+                <option value="mapbox://styles/mapbox/satellite-v9">🛰️ Satellite</option>
+                <option value="mapbox://styles/mapbox/satellite-streets-v12">Satellite Streets</option>
+                <option value="mapbox://styles/mapbox/navigation-day-v1">☀️ Navigation</option>
+                <option value="mapbox://styles/mapbox/navigation-night-v1">🌙 Navigation</option>
+            </select>
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">Select Light Preset</h6>
             <select class="form-select" id="lightPreset">
                 <option value="dawn">⛅ Dawn</option>
                 <option value="day">☀️ Day</option>

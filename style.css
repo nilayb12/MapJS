@@ -1,6 +1,11 @@
-body {
-    background-color: black;
-    color: white;
+[data-bs-theme=light] {
+    --bs-body-color: black !important;
+    --bs-body-bg: white !important;
+}
+
+[data-bs-theme=dark] {
+    --bs-body-color: white !important;
+    --bs-body-bg: black !important;
 }
 
 hr {

@@ -18,6 +18,10 @@ const map = new mapboxgl.Map({
     trackResize: true
 });
 
+document.getElementById('mapStyle').addEventListener('change', function () {
+    map.setStyle(this.value);
+})
+
 map.on('style.load', () => {
     map.setConfigProperty('basemap', 'lightPreset', 'dusk');
     map.setConfigProperty('basemap', 'showPlaceLabels', true);
