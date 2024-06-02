@@ -46,7 +46,7 @@
                 <option value="mapbox://styles/mapbox/navigation-night-v1">🌙 Navigation</option>
             </select>
         </div>
-        <div class="card-body">
+        <div class="card-footer">
             <h6 class="card-title">Select Light Preset</h6>
             <select class="form-select" id="lightPreset">
                 <option value="dawn">⛅ Dawn</option>
@@ -55,7 +55,7 @@
                 <option value="night">🌙 Night</option>
             </select>
             <hr>
-            <button class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#mapLabels">Toggle Legend</button>
+            <button class="btn btn-sm btn-outline-primary dropdown-toggle" id="mapLabelsToggle" data-bs-toggle="collapse" data-bs-target="#mapLabels">Toggle Legend</button>
         </div>
         <ul class="collapse list-group list-group-flush" id="mapLabels">
             <li class="list-group-item">

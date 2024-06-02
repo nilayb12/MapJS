@@ -20,6 +20,12 @@ const map = new mapboxgl.Map({
 
 document.getElementById('mapStyle').addEventListener('change', function () {
     map.setStyle(this.value);
+    console.log(this.options[this.selectedIndex].text);
+    if (this.options[this.selectedIndex].text != 'Standard') {
+        $('#lightPreset, #mapLabelsToggle').attr('disabled', 'true');
+        $('#mapLabels').collapse('hide');
+    }
+    else { $('#lightPreset, #mapLabelsToggle').removeAttr('disabled'); }
 })
 
 map.on('style.load', () => {
