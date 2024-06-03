@@ -17,12 +17,10 @@ hr {
     width: 100%;
 }
 
-#mapOptions {
-    z-index: 1;
+#mapOptions, #mapLegend {
     font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
     font-weight: var(--bs-body-font-weight);
-    /* line-height: var(--bs-body-line-height); */
 }
 
 #mouseCoord {
