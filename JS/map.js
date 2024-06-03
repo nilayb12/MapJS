@@ -20,12 +20,18 @@ const map = new mapboxgl.Map({
 
 document.getElementById('mapStyle').addEventListener('change', function () {
     map.setStyle(this.value);
-    console.log(this.options[this.selectedIndex].text);
     if (this.options[this.selectedIndex].text != 'Standard') {
-        $('#lightPreset, #mapLabelsToggle').attr('disabled', 'true');
+        $('#lightPreset').prop('disabled', 'true');
+        // $('#mapLabelsToggle').css('pointer-events', 'none');2
+        document.getElementById('mapLabelsToggle').style.setProperty('pointer-events', 'none');
         $('#mapLabels').collapse('hide');
+        document.getElementById('lightPreset').selectedIndex = 2;
+        $('#mapLabels input[type="checkbox"]').prop('checked', 'true');
     }
-    else { $('#lightPreset, #mapLabelsToggle').removeAttr('disabled'); }
+    else {
+        $('#lightPreset').removeAttr('disabled');
+        document.getElementById('mapLabelsToggle').style.removeProperty('pointer-events');
+    }
 })
 
 map.on('style.load', () => {

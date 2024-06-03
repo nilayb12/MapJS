@@ -17,6 +17,14 @@ hr {
     width: 100%;
 }
 
+#mapOptions {
+    z-index: 2;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+}
+
 #mouseCoord {
     /* background: rgba(0, 0, 0, 0.5); */
     color: currentColor;
