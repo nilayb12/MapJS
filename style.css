@@ -13,30 +13,18 @@ hr {
 }
 
 #map {
-    height: 97vh;
+    height: 100vh;
     width: 100%;
-}
 
-#mapOptions, #mapLegend {
-    font-family: var(--bs-body-font-family);
-    font-size: var(--bs-body-font-size);
-    font-weight: var(--bs-body-font-weight);
-}
+    #mapOptions, #mapLegend {
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+    }
 
-#mouseCoord {
-    /* background: rgba(0, 0, 0, 0.5); */
-    color: currentColor;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 5px;
-    margin: auto;
-    /* font-size: medium; */
-    line-height: 8px;
-    /* border-radius: 3px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    #mouseCoord {
+        font-size: small;
+    }
 }
 
 .mapboxgl-popup-content {
@@ -67,6 +55,10 @@ hr {
             padding-bottom: .2rem;
             color: #046A38;
             text-align: inherit;
+        }
+
+        td {
+            align-content: center;
         }
     }
 }
