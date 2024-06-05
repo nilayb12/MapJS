@@ -21,6 +21,8 @@ const map = new mapboxgl.Map({
     trackResize: true
 });
 
+document.addEventListener("DOMContentLoaded", () => map.resize());
+
 document.getElementById('mapStyle').addEventListener('change', function () {
     map.setStyle(this.value);
     if (this.options[this.selectedIndex].text != 'Standard') {
