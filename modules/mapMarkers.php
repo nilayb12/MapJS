@@ -31,11 +31,11 @@
         else {
             echo '<table class="card-body table table-sm table-bordered table-striped table-hover table-group-divider">'.
             '<caption>' . $infoIcon . ' Click a Data Item to Copy its Value.</caption>'.
-            '<thead><tr><th>Server</th><th>Mgmt IP</th><th>IPv6</th></tr></thead><tbody class="table-group-divider">';
+            '<thead><tr><th>Server</th><!--<th>Mgmt IP</th>--><th>IPv6</th></tr></thead><tbody class="table-group-divider">';
             while ($data1 = mysqli_fetch_assoc($result1)) {
-                echo '<tr><td>' . $data1['Server'] . '</td><td><button class="btn btn-sm" '.
+                echo '<tr><td>' . $data1['Server'] . '</td><!--<td><button class="btn btn-sm" '.
                 'onclick="navigator.clipboard.writeText(`' . inet_ntop(hex2bin($data1['MgmtIP'])) . '`);">'.
-                inet_ntop(hex2bin($data1['MgmtIP']))  . '</button></td><td><button class="btn btn-sm" '.
+                inet_ntop(hex2bin($data1['MgmtIP']))  . '</button></td>--><td><button class="btn btn-sm" '.
                 'onclick="navigator.clipboard.writeText(`' . inet_ntop(hex2bin($data1['IPv6'])) . '`);">'.
                 inet_ntop(hex2bin($data1['IPv6'])) . '</button></td></tr>';
             }
