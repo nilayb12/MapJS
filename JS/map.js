@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => map.resize());
 
 document.getElementById('mapStyle').addEventListener('change', function () {
     map.setStyle(this.value);
-    if (this.options[this.selectedIndex].text != 'Standard') {
+    if (this.options[this.selectedIndex].text != '🗺️ Standard') {
         $('#lightPreset').prop('disabled', 'true');
         // $('#mapLabelsToggle').css('pointer-events', 'none');2
         document.getElementById('mapLabelsToggle').style.setProperty('pointer-events', 'none');
