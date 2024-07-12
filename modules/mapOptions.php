@@ -51,19 +51,19 @@
         </span>
     </div>
     <ul class="collapse list-group list-group-flush" id="mapLabels">
-        <li class="list-group-item d-flex">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
             <label class="stretched-link me-auto" for="showPlaceLabels">🏢 Place Labels</label>
             <input class="form-check-input" type="checkbox" id="showPlaceLabels" checked>
         </li>
-        <li class="list-group-item d-flex">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
             <label class="stretched-link me-auto" for="showPointOfInterestLabels">🏟️ POI Labels</label>
             <input class="form-check-input" type="checkbox" id="showPointOfInterestLabels" checked>
         </li>
-        <li class="list-group-item d-flex">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
             <label class="stretched-link me-auto" for="showRoadLabels">🛣️ Road Labels</label>
             <input class="form-check-input" type="checkbox" id="showRoadLabels" checked>
         </li>
-        <li class="list-group-item d-flex">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
             <label class="stretched-link me-auto" for="showTransitLabels">🚉 Transit Labels</label>
             <input class="form-check-input" type="checkbox" id="showTransitLabels" checked>
         </li>
@@ -74,8 +74,8 @@
         <h6 class="card-title">Map Legend</h6>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item d-flex">
-            <label class="stretched-link me-1" for="serversPrs">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
+            <label class="stretched-link me-2" for="serversPrs">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF671F" class="bi bi-geo-alt-fill"
                     viewBox="0 0 16 16">
                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"></path>
@@ -83,7 +83,7 @@
             </label>
             <input class="form-check-input" type="checkbox" id="serversPrs" checked>
         </li>
-        <li class="list-group-item d-flex">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
             <label class="stretched-link me-auto" for="serversAbs">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0098e0" class="bi bi-geo-alt-fill"
                     viewBox="0 0 16 16">
