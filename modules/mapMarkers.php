@@ -27,7 +27,8 @@
             '<div class="carousel-inner"><div class="carousel-item active">' +
             '<img src="pink_blue_red_oil_paint_abstraction_4k_8k_hd_abstract.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item">' +
             '<img src="pink_blue_red_oil_paint_abstraction_4k_8k_hd_abstract.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item">' +
-            '<img src="google-maps.png" class="d-block w-100" alt="..."></div></div>' +
+            '<img src="google-maps.png" class="d-block w-100" alt="..."></div><div class="carousel-item">' +
+            '<input class="form-control" type="file" /></div></div>' +
             '<button class="carousel-control-prev btn btn-outline-secondary" data-bs-target="#carouselExample" data-bs-slide="prev">' +
             '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>' +
             '</button><button class="carousel-control-next btn btn-outline-secondary" data-bs-target="#carouselExample" data-bs-slide="next">' +
@@ -37,10 +38,10 @@
             $result1 = mysqli_query($db, $query1);
 
             if (mysqli_num_rows($result1) == 0)
-                echo '<div class="card-body">' . $infoIcon . ' No Servers Installed at this Location.' . '</div>';
+                echo '<div class="card-body" style="color: brown;">' . $infoIcon . ' No Servers Installed at this Location.' . '</div>';
             else {
                 echo '<table class="card-body table table-sm table-bordered table-striped table-hover table-group-divider">' .
-                    '<caption>' . $infoIcon . ' Click a Data Item to Copy its Value.</caption>' .
+                    '<caption>' . $infoIcon . ' Click an IP to Copy its Value.</caption>' .
                     '<thead><tr><th>Server</th><!--<th>Mgmt IP</th>--><th>IPv6</th></tr></thead><tbody class="table-group-divider">';
                 while ($data1 = mysqli_fetch_assoc($result1)) {
                     echo '<tr><td>' . $data1['Server'] . '</td><!--<td><button class="btn btn-sm" ' .
@@ -96,14 +97,14 @@
     }
     ?>
 
-    document.getElementById('serversPrs').addEventListener('change', function () {
+    $('#serversPrs').on('change', function () {
         document.querySelectorAll('.mapboxgl-marker').forEach((marker) => {
             if (marker.children[0].children[2].getAttribute('fill') == '#FF671F') {
                 this.checked == false ? marker.style.setProperty('visibility', 'hidden') : marker.style.removeProperty('visibility');
             }
         });
     });
-    document.getElementById('serversAbs').addEventListener('change', function () {
+    $('#serversAbs').on('change', function () {
         document.querySelectorAll('.mapboxgl-marker').forEach((marker) => {
             if (marker.children[0].children[2].getAttribute('fill') == '#0098e0') {
                 this.checked == false ? marker.style.setProperty('visibility', 'hidden') : marker.style.removeProperty('visibility');

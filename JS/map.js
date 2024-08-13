@@ -23,32 +23,45 @@ const map = new mapboxgl.Map({
 
 document.addEventListener("DOMContentLoaded", () => map.resize());
 
-document.getElementById('mapStyle').addEventListener('change', function () {
+$('#mapStyle').on('change', function () {
     map.setStyle(this.value);
-    if (this.options[this.selectedIndex].text != '🗺️ Standard') {
+    $('#mapLabels input[type="checkbox"]').prop('checked', 'true');
+
+    if (!this.options[this.selectedIndex].text.match('Standard')) {
         $('#lightPreset').prop('disabled', 'true');
-        // $('#mapLabelsToggle').css('pointer-events', 'none');2
+        // $('#mapLabelsToggle').css('pointer-events', 'none');
         document.getElementById('mapLabelsToggle').style.setProperty('pointer-events', 'none');
         $('#mapLabels').collapse('hide');
         document.getElementById('lightPreset').selectedIndex = 2;
-        $('#mapLabels input[type="checkbox"]').prop('checked', 'true');
     }
     else {
         $('#lightPreset').removeAttr('disabled');
         document.getElementById('mapLabelsToggle').style.removeProperty('pointer-events');
     }
-})
+
+    if (this.options[this.selectedIndex].text == '🗺️ Standard') {
+        $('#showRoadsAndTransit').parent().addClass('d-none');
+        $('#showPedestrianRoads').parent().addClass('d-none');
+        $('#show3dObjects').parent().removeClass('d-none');
+    } else if (this.options[this.selectedIndex].text == 'Standard Satellite') {
+        $('#showRoadsAndTransit').parent().removeClass('d-none');
+        $('#showPedestrianRoads').parent().removeClass('d-none');
+        $('#show3dObjects').parent().addClass('d-none');
+    }
+});
 
 map.on('style.load', () => {
     map.setConfigProperty('basemap', 'lightPreset', 'dusk');
     map.setConfigProperty('basemap', 'showPlaceLabels', true);
     map.setConfigProperty('basemap', 'showPointOfInterestLabels', true);
+    map.setConfigProperty('basemap', 'showRoadsAndTransit', true);
+    map.setConfigProperty('basemap', 'showPedestrianRoads', true);
     map.setConfigProperty('basemap', 'showRoadLabels', true);
     map.setConfigProperty('basemap', 'showTransitLabels', true);
 
 });
 
-document.getElementById('lightPreset').addEventListener('change', function () {
+$('#lightPreset').on('change', function () {
     map.setConfigProperty('basemap', 'lightPreset', this.value);
 });
 
@@ -137,7 +150,8 @@ map.addControl(new MapboxGeocoder({
 })
 ).addControl(new mapboxgl.NavigationControl({
     showCompass: true,
-    showZoom: true
+    showZoom: true,
+    visualizePitch: true
 })
 ).addControl(new mapboxgl.FullscreenControl()
 ).addControl(new mapboxgl.ScaleControl()

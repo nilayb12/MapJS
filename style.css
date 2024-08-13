@@ -16,7 +16,8 @@ hr {
     height: 100vh;
     width: 100vw;
 
-    #mapOptions, #mapLegend {
+    #mapOptions,
+    #mapLegend {
         font-family: var(--bs-body-font-family);
         font-size: var(--bs-body-font-size);
         font-weight: var(--bs-body-font-weight);
@@ -51,8 +52,8 @@ hr {
         margin-bottom: 0;
 
         caption {
-            padding-top: .2rem;
-            padding-bottom: .2rem;
+            /* padding-top: .2rem;
+            padding-bottom: .2rem; */
             color: #046A38;
             text-align: inherit;
         }

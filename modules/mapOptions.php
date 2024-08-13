@@ -1,8 +1,9 @@
-<div class="card position-absolute top-0 start-0 mt-1 ms-1 z-1" id="mapOptions">
+<div class="card position-absolute top-0 start-0 mt-1 ms-1 z-3" id="mapOptions">
     <div class="card-header">
         <h6 class="card-title">Map Style</h6>
         <select class="form-select" id="mapStyle">
             <option value="mapbox://styles/mapbox/standard" selected>🗺️ Standard</option>
+            <option value="mapbox://styles/mapbox/standard-satellite">Standard Satellite</option>
             <option value="mapbox://styles/mapbox/streets-v12">🛣️ Streets</option>
             <option value="mapbox://styles/mapbox/outdoors-v12">🏞️ Outdoors</option>
             <option value="mapbox://styles/mapbox/light-v11">💡 Light</option>
@@ -13,11 +14,11 @@
             <option value="mapbox://styles/mapbox/navigation-night-v1">🌙 Navigation</option>
         </select>
     </div>
-    <div class="card-footer">
+    <div class="card-header">
         <span class="d-flex">
             <h6 class="card-title me-auto">Light Preset</h6>
             <attr data-bs-toggle="tooltip" data-bs-html="true"
-                data-bs-title="This Option is Limited to the <code><strong>STANDARD</strong></code> Map Style.">
+                data-bs-title="This Option is Limited to <code><strong>STANDARD</strong></code> Map Styles.">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-question-circle-fill" viewBox="0 0 16 16">
                     <path
@@ -33,6 +34,30 @@
         </select>
     </div>
     <div class="card-footer">
+        <h6 class="card-title">Map Legend</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
+            <label class="stretched-link me-auto" for="serversPrs">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF671F" class="bi bi-geo-alt-fill"
+                    viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"></path>
+                </svg> Servers Installed
+            </label>
+            <input class="form-check-input" type="checkbox" id="serversPrs" checked>
+        </li>
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
+            <label class="stretched-link me-auto" for="serversAbs">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0098e0" class="bi bi-geo-alt-fill"
+                    viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"></path>
+                </svg> No Servers
+            </label>
+            <input class="form-check-input" type="checkbox" id="serversAbs" checked>
+        </li>
+    </ul>
+    <div class="card-header" id="mouseCoord"></div>
+    <div class="card-footer">
         <span class="d-flex">
             <h6 class="card-title me-auto" id="mapLabelsToggle" role="button" data-bs-toggle="collapse"
                 data-bs-target="#mapLabels">Map Labels <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -41,7 +66,7 @@
                         d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg></h6>
             <attr data-bs-toggle="tooltip" data-bs-html="true"
-                data-bs-title="This Option is Limited to the <code><strong>STANDARD</strong></code> Map Style.">
+                data-bs-title="This Option is Limited to <code><strong>STANDARD</strong></code> Map Styles.">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-question-circle-fill" viewBox="0 0 16 16">
                     <path
@@ -59,17 +84,29 @@
             <label class="stretched-link me-auto" for="showPointOfInterestLabels">🏟️ POI Labels</label>
             <input class="form-check-input" type="checkbox" id="showPointOfInterestLabels" checked>
         </li>
+        <li class="list-group-item d-flex !justify-content-between align-items-center d-none">
+            <label class="stretched-link me-auto" for="showRoadsAndTransit">🛣️ Roads/Transit</label>
+            <input class="form-check-input" type="checkbox" id="showRoadsAndTransit" checked>
+        </li>
+        <li class="list-group-item d-flex !justify-content-between align-items-center d-none">
+            <label class="stretched-link me-auto" for="showPedestrianRoads">⛙ Paths/Trails</label>
+            <input class="form-check-input" type="checkbox" id="showPedestrianRoads" checked>
+        </li>
         <li class="list-group-item d-flex !justify-content-between align-items-center">
             <label class="stretched-link me-auto" for="showRoadLabels">🛣️ Road Labels</label>
             <input class="form-check-input" type="checkbox" id="showRoadLabels" checked>
         </li>
         <li class="list-group-item d-flex !justify-content-between align-items-center">
-            <label class="stretched-link me-auto" for="showTransitLabels">🚉 Transit Labels</label>
+            <label class="stretched-link me-auto" for="showTransitLabels">🚏 Transit Labels</label>
             <input class="form-check-input" type="checkbox" id="showTransitLabels" checked>
+        </li>
+        <li class="list-group-item d-flex !justify-content-between align-items-center">
+            <label class="stretched-link me-auto" for="show3dObjects">🧊 3D Objects</label>
+            <input class="form-check-input" type="checkbox" id="show3dObjects" checked>
         </li>
     </ul>
 </div>
-<div class="card position-absolute start-0 ms-1 z-1" id="mapLegend" style="bottom: 5rem;">
+<!-- <div class="card position-absolute start-0 ms-1 z-1" id="mapLegend" style="bottom: 5rem;">
     <div class="card-header">
         <h6 class="card-title">Map Legend</h6>
     </div>
@@ -94,4 +131,4 @@
         </li>
     </ul>
     <div class="card-footer" id="mouseCoord"></div>
-</div>
+</div> -->
