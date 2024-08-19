@@ -33,8 +33,8 @@
             '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>' +
             '</button><button class="carousel-control-next btn btn-outline-secondary" data-bs-target="#carouselExample" data-bs-slide="next">' +
             '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>' +
-            '</button></div>--><?php $city = $data['City'];
-            $query1 = "SELECT * FROM servers WHERE City = ('$city')";
+            '</button></div>--><?php $cityIdx = $data['Idx'];
+            $query1 = "SELECT * FROM servers WHERE CityIdx = ('$cityIdx')";
             $result1 = mysqli_query($db, $query1);
 
             if (mysqli_num_rows($result1) == 0)

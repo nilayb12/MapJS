@@ -79,8 +79,10 @@ map.on('mousemove', (e) => {
         // '<br />' +
         // `e.lngLat` is the longitude, latitude geographical position of the event.
         // JSON.stringify(e.lngLat.wrap());
-        '<span>Long: ' + e.lngLat.lng + '</span><br>' +
-        '<span>Lat: ' + e.lngLat.lat + '</span>';
+        // '<span>Long: ' + e.lngLat.lng + '</span><br />' +
+        // '<span>Lat: ' + e.lngLat.lat + '</span>';
+        '<tbody>' + '<tr><td>Long</td><td>' + e.lngLat.lng + '</td></tr>' +
+        '<tr><td>Lat</td><td>' + e.lngLat.lat + '</td></tr>' + '</tbody>';
 });
 
 const coordinatesGeocoder = function (query) {

@@ -34,7 +34,7 @@
         </select>
     </div>
     <div class="card-footer">
-        <h6 class="card-title">Map Legend</h6>
+        <h6 class="card-title mb-0">Map Legend</h6>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item d-flex !justify-content-between align-items-center">
@@ -56,12 +56,12 @@
             <input class="form-check-input" type="checkbox" id="serversAbs" checked>
         </li>
     </ul>
-    <div class="card-header" id="mouseCoord"></div>
+    <table class="card-header table table-sm table-bordered table-striped table-hover" id="mouseCoord"></table>
     <div class="card-footer">
         <span class="d-flex">
-            <h6 class="card-title me-auto" id="mapLabelsToggle" role="button" data-bs-toggle="collapse"
-                data-bs-target="#mapLabels">Map Labels <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+            <h6 class="card-title me-auto mb-0" id="mapLabelsToggle" role="button" data-bs-toggle="collapse"
+                data-bs-target="#mapLabels">Map Labels<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-caret-down-fill ms-2" viewBox="0 0 16 16">
                     <path
                         d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg></h6>
