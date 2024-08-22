@@ -106,29 +106,4 @@
         </li>
     </ul>
 </div>
-<!-- <div class="card position-absolute start-0 ms-1 z-1" id="mapLegend" style="bottom: 5rem;">
-    <div class="card-header">
-        <h6 class="card-title">Map Legend</h6>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item d-flex !justify-content-between align-items-center">
-            <label class="stretched-link me-2" for="serversPrs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF671F" class="bi bi-geo-alt-fill"
-                    viewBox="0 0 16 16">
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"></path>
-                </svg> Servers Installed
-            </label>
-            <input class="form-check-input" type="checkbox" id="serversPrs" checked>
-        </li>
-        <li class="list-group-item d-flex !justify-content-between align-items-center">
-            <label class="stretched-link me-auto" for="serversAbs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0098e0" class="bi bi-geo-alt-fill"
-                    viewBox="0 0 16 16">
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"></path>
-                </svg> No Servers
-            </label>
-            <input class="form-check-input" type="checkbox" id="serversAbs" checked>
-        </li>
-    </ul>
-    <div class="card-footer" id="mouseCoord"></div>
-</div> -->
+<!-- <div class="card position-absolute start-0 ms-1 z-1" id="mapLegend" style="bottom: 5rem;"></div> -->

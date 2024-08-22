@@ -81,7 +81,7 @@ map.on('mousemove', (e) => {
         // JSON.stringify(e.lngLat.wrap());
         // '<span>Long: ' + e.lngLat.lng + '</span><br />' +
         // '<span>Lat: ' + e.lngLat.lat + '</span>';
-        '<tbody>' + '<tr><td>Long</td><td>' + e.lngLat.lng + '</td></tr>' +
+        '<tbody>' + '<tr><td class="w-25">Long</td><td>' + e.lngLat.lng + '</td></tr>' +
         '<tr><td>Lat</td><td>' + e.lngLat.lat + '</td></tr>' + '</tbody>';
 });
 
