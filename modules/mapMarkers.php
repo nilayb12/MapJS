@@ -22,7 +22,7 @@
 
         marker<?php echo $data['Idx']; ?>.innerHTML = '<div class="card-header">' +
             '<h5 class="card-title" style="color: #FF671F;"><?php echo $data['City']; ?></h5>' +
-            '<span>Long: <?php echo $data['Lng']; ?></span><br><span>Lat: <?php echo $data['Lat']; ?></span>' +
+            '<span class="rubik-font">Long: <?php echo $data['Lng']; ?><br>Lat: <?php echo $data['Lat']; ?></span>' +
             '</div><!--<div id="carouselExample" class="carousel carousel-dark slide">' +
             '<div class="carousel-inner"><div class="carousel-item active">' +
             '<img src="pink_blue_red_oil_paint_abstraction_4k_8k_hd_abstract.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item">' +

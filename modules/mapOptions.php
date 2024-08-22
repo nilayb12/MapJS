@@ -1,4 +1,4 @@
-<div class="card position-absolute top-0 start-0 mt-1 ms-1 z-3" id="mapOptions">
+<div class="card position-absolute top-0 start-0 mt-1 ms-1 z-3 rubik-font" id="mapOptions">
     <div class="card-header">
         <h6 class="card-title">Map Style</h6>
         <select class="form-select" id="mapStyle">

@@ -18,9 +18,9 @@ hr {
 
     #mapOptions,
     #mapLegend {
-        font-family: var(--bs-body-font-family);
+        /* font-family: var(--bs-body-font-family); */
         font-size: var(--bs-body-font-size);
-        font-weight: var(--bs-body-font-weight);
+        /* font-weight: var(--bs-body-font-weight); */
     }
 
     #mouseCoord {
@@ -84,4 +84,18 @@ svg {
     margin: 0;
     padding: 5px 10px;
     border-radius: 3px;
+}
+
+.montserrat-font {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rubik-font {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
