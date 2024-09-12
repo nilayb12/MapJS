@@ -3,13 +3,7 @@
     <div class="card-header">
         <span class="d-flex">
             <h6 class="card-title me-auto">Map Style</h6>
-            <attr id="hideOpt" role="button" data-bs-toggle="tooltip" title="Hide Map Options">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-                </svg>
-            </attr>
+            <attr id="hideOpt" role="button" data-bs-toggle="tooltip" title="Close">❌</attr>
         </span>
         <select class="form-select" id="mapStyle">
             <option value="mapbox://styles/mapbox/standard" selected>🗺️ Standard</option>
@@ -119,8 +113,13 @@
 <!-- <div class="card position-absolute start-0 ms-1 z-1" id="mapLegend" style="bottom: 5rem;"></div> -->
 <button class="btn btn-sm btn-info position-relative float-start mt-1 ms-1 z-3" id="showOpt" data-bs-toggle="tooltip"
     title="Show Map Options"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+            d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
+    </svg>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
         class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd"
             d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-    </svg>
+    </svg> -->
 </button>
