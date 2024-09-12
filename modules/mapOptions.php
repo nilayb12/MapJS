@@ -1,6 +1,16 @@
-<div class="card position-absolute top-0 start-0 mt-1 ms-1 z-3 rubik-font" id="mapOptions">
+<!-- <div class="card position-absolute top-0 start-0 mt-1 ms-1 z-3 rubik-font" id="mapOptions"> -->
+<div class="card float-start mt-1 ms-1 z-3 rubik-font d-none" id="mapOptions">
     <div class="card-header">
-        <h6 class="card-title">Map Style</h6>
+        <span class="d-flex">
+            <h6 class="card-title me-auto">Map Style</h6>
+            <attr id="hideOpt" role="button" data-bs-toggle="tooltip" title="Hide Map Options">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                </svg>
+            </attr>
+        </span>
         <select class="form-select" id="mapStyle">
             <option value="mapbox://styles/mapbox/standard" selected>🗺️ Standard</option>
             <option value="mapbox://styles/mapbox/standard-satellite">Standard Satellite</option>
@@ -18,7 +28,7 @@
         <span class="d-flex">
             <h6 class="card-title me-auto">Light Preset</h6>
             <attr data-bs-toggle="tooltip" data-bs-html="true"
-                data-bs-title="This Option is Limited to <code><strong>STANDARD</strong></code> Map Styles.">
+                title="This Option is Limited to <code><strong>STANDARD</strong></code> Map Styles.">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-question-circle-fill" viewBox="0 0 16 16">
                     <path
@@ -66,7 +76,7 @@
                         d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg></h6>
             <attr data-bs-toggle="tooltip" data-bs-html="true"
-                data-bs-title="This Option is Limited to <code><strong>STANDARD</strong></code> Map Styles.">
+                title="This Option is Limited to <code><strong>STANDARD</strong></code> Map Styles.">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-question-circle-fill" viewBox="0 0 16 16">
                     <path
@@ -107,3 +117,10 @@
     </ul>
 </div>
 <!-- <div class="card position-absolute start-0 ms-1 z-1" id="mapLegend" style="bottom: 5rem;"></div> -->
+<button class="btn btn-sm btn-info position-relative float-start mt-1 ms-1 z-3" id="showOpt" data-bs-toggle="tooltip"
+    title="Show Map Options"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+    </svg>
+</button>

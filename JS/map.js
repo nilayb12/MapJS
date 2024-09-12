@@ -1,5 +1,5 @@
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover' }));
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2x3NmhieTZqMW9sYTJqcGQ3Y2o2Mmd0eCJ9.8cNx9NZ2B0gEMRZVkvuXUg';
 // DON'T. TAMPER. WITH. THE. KEY.
@@ -8,7 +8,7 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/standard',
     center: [73.014641, 19.126813], // [lng, lat]
     zoom: 6,
-    cooperativeGestures: true,
+    cooperativeGestures: false,
     attributionControl: true,
     boxZoom: true,
     doubleClickZoom: true,
@@ -22,6 +22,15 @@ const map = new mapboxgl.Map({
 });
 
 document.addEventListener("DOMContentLoaded", () => map.resize());
+
+$('#showOpt').click(function () {
+    $('#mapOptions').removeClass('d-none');
+    $(this).addClass('d-none');
+});
+$('#hideOpt').click(function () {
+    $('#mapOptions').addClass('d-none');
+    $('#showOpt').removeClass('d-none');
+});
 
 $('#mapStyle').on('change', function () {
     map.setStyle(this.value);
@@ -81,8 +90,8 @@ map.on('mousemove', (e) => {
         // JSON.stringify(e.lngLat.wrap());
         // '<span>Long: ' + e.lngLat.lng + '</span><br />' +
         // '<span>Lat: ' + e.lngLat.lat + '</span>';
-        '<tbody>' + '<tr><td class="w-25">Long</td><td>' + e.lngLat.lng + '</td></tr>' +
-        '<tr><td>Lat</td><td>' + e.lngLat.lat + '</td></tr>' + '</tbody>';
+        '<tbody>' + '<tr><td class="w-25 text-center">Long</td><td>' + e.lngLat.lng + '</td></tr>' +
+        '<tr><td class="text-center">Lat</td><td>' + e.lngLat.lat + '</td></tr>' + '</tbody>';
 });
 
 const coordinatesGeocoder = function (query) {
