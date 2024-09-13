@@ -6,16 +6,20 @@
             <attr id="hideOpt" role="button" data-bs-toggle="tooltip" title="Close">❌</attr>
         </span>
         <select class="form-select" id="mapStyle">
-            <option value="mapbox://styles/mapbox/standard" selected>🗺️ Standard</option>
-            <option value="mapbox://styles/mapbox/standard-satellite">Standard Satellite</option>
-            <option value="mapbox://styles/mapbox/streets-v12">🛣️ Streets</option>
-            <option value="mapbox://styles/mapbox/outdoors-v12">🏞️ Outdoors</option>
-            <option value="mapbox://styles/mapbox/light-v11">💡 Light</option>
-            <option value="mapbox://styles/mapbox/dark-v11">🌑 Dark</option>
-            <option value="mapbox://styles/mapbox/satellite-v9">🛰️ Satellite</option>
-            <option value="mapbox://styles/mapbox/satellite-streets-v12">Satellite Streets</option>
-            <option value="mapbox://styles/mapbox/navigation-day-v1">☀️ Navigation</option>
-            <option value="mapbox://styles/mapbox/navigation-night-v1">🌙 Navigation</option>
+            <optgroup label="Standard Maps">
+                <option value="mapbox://styles/mapbox/standard" selected>🗺️ Standard</option>
+                <option value="mapbox://styles/mapbox/standard-satellite">Standard Satellite</option>
+            </optgroup>
+            <optgroup label="Classic Maps">
+                <option value="mapbox://styles/mapbox/streets-v12">🛣️ Streets</option>
+                <option value="mapbox://styles/mapbox/outdoors-v12">🏞️ Outdoors</option>
+                <option value="mapbox://styles/mapbox/light-v11">💡 Light</option>
+                <option value="mapbox://styles/mapbox/dark-v11">🌑 Dark</option>
+                <option value="mapbox://styles/mapbox/satellite-v9">🛰️ Satellite</option>
+                <option value="mapbox://styles/mapbox/satellite-streets-v12">Satellite Streets</option>
+                <option value="mapbox://styles/mapbox/navigation-day-v1">☀️ Navigation</option>
+                <option value="mapbox://styles/mapbox/navigation-night-v1">🌙 Navigation</option>
+            </optgroup>
         </select>
     </div>
     <div class="card-header">

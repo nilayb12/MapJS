@@ -35,13 +35,13 @@ $('#hideOpt').click(function () {
 $('#mapStyle').on('change', function () {
     map.setStyle(this.value);
     $('#mapLabels input[type="checkbox"]').prop('checked', 'true');
+    document.getElementById('lightPreset').selectedIndex = 2;
 
     if (!this.options[this.selectedIndex].text.match('Standard')) {
         $('#lightPreset').prop('disabled', 'true');
         // $('#mapLabelsToggle').css('pointer-events', 'none');
         document.getElementById('mapLabelsToggle').style.setProperty('pointer-events', 'none');
         $('#mapLabels').collapse('hide');
-        document.getElementById('lightPreset').selectedIndex = 2;
     }
     else {
         $('#lightPreset').removeAttr('disabled');
