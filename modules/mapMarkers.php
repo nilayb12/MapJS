@@ -17,12 +17,12 @@
         ?>
         const marker<?php echo $data['Idx']; ?> = document.createElement('div');
         const options<?php echo $data['Idx']; ?> = document.createElement('div');
-        $(marker<?php echo $data['Idx']; ?>).addClass("card text-center");
+        $(marker<?php echo $data['Idx']; ?>).addClass("card text-center rubik-font");
         $(options<?php echo $data['Idx']; ?>).addClass("card-footer");
 
         marker<?php echo $data['Idx']; ?>.innerHTML = '<div class="card-header">' +
             '<h5 class="card-title" style="color: #FF671F;"><?php echo $data['City']; ?></h5>' +
-            '<span class="rubik-font">Long: <?php echo round($data['Lng'], 5); ?><br>Lat: <?php echo round($data['Lat'], 5); ?></span>' +
+            '<span>Long: <?php echo round($data['Lng'], 5); ?><br>Lat: <?php echo round($data['Lat'], 5); ?></span>' +
             '</div><!--<div id="carouselExample" class="carousel carousel-dark slide">' +
             '<div class="carousel-inner"><div class="carousel-item active">' +
             '<img src="pink_blue_red_oil_paint_abstraction_4k_8k_hd_abstract.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item">' +
