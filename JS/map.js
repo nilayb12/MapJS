@@ -22,6 +22,9 @@ const map = new mapboxgl.Map({
 });
 
 document.addEventListener("DOMContentLoaded", () => map.resize());
+function roundNum(num, precision) {
+    return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
+}
 
 $('#showOpt').click(function () {
     $('#mapOptions').removeClass('d-none');
@@ -81,17 +84,27 @@ document.querySelectorAll('#mapLabels input[type="checkbox"]').forEach((checkbox
 });
 
 map.on('mousemove', (e) => {
-    document.getElementById('mouseCoord').innerHTML =
-        // `e.point` is the x, y coordinates of the `mousemove` event
-        // relative to the top-left corner of the map.
-        // JSON.stringify(e.point) +
-        // '<br />' +
-        // `e.lngLat` is the longitude, latitude geographical position of the event.
-        // JSON.stringify(e.lngLat.wrap());
-        // '<span>Long: ' + e.lngLat.lng + '</span><br />' +
-        // '<span>Lat: ' + e.lngLat.lat + '</span>';
-        '<tbody>' + '<tr><td class="w-25 text-center">Long</td><td>' + e.lngLat.lng + '</td></tr>' +
-        '<tr><td class="text-center">Lat</td><td>' + e.lngLat.lat + '</td></tr>' + '</tbody>';
+    // document.getElementById('mouseCoord').innerHTML =
+
+    // `e.point` is the x, y coordinates of the `mousemove` event
+    // relative to the top-left corner of the map.
+
+    // JSON.stringify(e.point) +
+    // '<br />' +
+    // `e.lngLat` is the longitude, latitude geographical position of the event.
+    // JSON.stringify(e.lngLat.wrap());
+    // '<span>Long: ' + e.lngLat.lng + '</span><br />' +
+    // '<span>Lat: ' + e.lngLat.lat + '</span>';
+
+    // '<tbody>' + '<tr><td class="w-25 text-center">Long</td><td>' + e.lngLat.lng + '</td></tr>' +
+    // '<tr><td class="text-center">Lat</td><td>' + e.lngLat.lat + '</td></tr>' + '</tbody>';
+
+    $('#longVal').html(roundNum(e.lngLat.lng, 5));
+    $('#latVal').html(roundNum(e.lngLat.lat, 5));
+});
+
+map.on('zoom', function () {
+    $('#zoomLvl').html(roundNum(map.getZoom(), 2));
 });
 
 const coordinatesGeocoder = function (query) {

@@ -64,7 +64,22 @@
             <input class="form-check-input" type="checkbox" id="serversAbs" checked>
         </li>
     </ul>
-    <table class="card-header table table-sm table-bordered table-striped table-hover" id="mouseCoord"></table>
+    <table class="card-header table table-sm table-bordered table-striped table-hover" id="mouseCoord">
+        <tbody>
+            <tr>
+                <td class="w-25 text-center">Long</td>
+                <td id="longVal"></td>
+            </tr>
+            <tr>
+                <td class="text-center">Lat</td>
+                <td id="latVal"></td>
+            </tr>
+            <tr>
+                <td class="text-center">Zoom</td>
+                <td id="zoomLvl"></td>
+            </tr>
+        </tbody>
+    </table>
     <div class="card-footer">
         <span class="d-flex">
             <h6 class="card-title me-auto mb-0" id="mapLabelsToggle" role="button" data-bs-toggle="collapse"
