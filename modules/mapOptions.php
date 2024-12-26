@@ -76,7 +76,7 @@
             </tr>
             <tr>
                 <td class="text-center">Zoom</td>
-                <td id="zoomLvl"></td>
+                <td id="zoomLvl">6</td>
             </tr>
         </tbody>
     </table>
