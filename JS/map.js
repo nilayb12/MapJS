@@ -181,6 +181,11 @@ map.addControl(new MapboxGeocoder({
 ).addControl(new mapboxgl.ScaleControl()
 );
 
+$(document).ready(function () {
+    $('.mapboxgl-ctrl-geocoder').addClass('rounded-pill');
+    $('.mapboxgl-ctrl-geolocate').parent().addClass('rounded-pill');
+});
+
 // Set marker options.
 new mapboxgl.Marker({
     color: 'blue',

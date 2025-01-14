@@ -5,7 +5,7 @@
             <h6 class="card-title me-auto">Map Style</h6>
             <attr id="hideOpt" role="button" data-bs-toggle="tooltip" title="Close">❌</attr>
         </span>
-        <select class="form-select" id="mapStyle">
+        <select class="form-select rounded-pill" id="mapStyle">
             <optgroup label="Standard Maps">
                 <option value="mapbox://styles/mapbox/standard" selected>🗺️ Standard</option>
                 <option value="mapbox://styles/mapbox/standard-satellite">Standard Satellite</option>
@@ -34,7 +34,7 @@
                 </svg>
             </attr>
         </span>
-        <select class="form-select" id="lightPreset">
+        <select class="form-select rounded-pill" id="lightPreset">
             <option value="dawn">⛅ Dawn</option>
             <option value="day">☀️ Day</option>
             <option value="dusk" selected>🌄 Dusk</option>
