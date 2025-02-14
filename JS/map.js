@@ -1,6 +1,3 @@
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover' }));
-
 mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2x3NmhieTZqMW9sYTJqcGQ3Y2o2Mmd0eCJ9.8cNx9NZ2B0gEMRZVkvuXUg';
 // DON'T. TAMPER. WITH. THE. KEY.
 const map = new mapboxgl.Map({
@@ -22,18 +19,6 @@ const map = new mapboxgl.Map({
 });
 
 document.addEventListener("DOMContentLoaded", () => map.resize());
-function roundNum(num, precision) {
-    return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
-}
-
-$('#showOpt').click(function () {
-    $('#mapOptions').removeClass('d-none');
-    $(this).addClass('d-none');
-});
-$('#hideOpt').click(function () {
-    $('#mapOptions').addClass('d-none');
-    $('#showOpt').removeClass('d-none');
-});
 
 $('#mapStyle').on('change', function () {
     map.setStyle(this.value);
