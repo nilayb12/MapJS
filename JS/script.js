@@ -17,7 +17,7 @@ $('#hideOpt').click(function () {
     $('#showOpt').removeClass('d-none');
 });
 
-$('#search').on("keyup click input", function () {
+$('#search').on('input', function () {
     var searchVal = $(this).val();
     if (searchVal.length >= $(this).attr('minlength')) {
         $.ajax({
@@ -25,13 +25,11 @@ $('#search').on("keyup click input", function () {
             url: "modules/search.php",
             data: { term: searchVal },
             success: function (data) {
-                $('#searchRes').html(data);
-                $('#searchRes').addClass('show');
+                $('#searchRes').html(data).addClass('show');
             }
         });
     } else {
-        $('#searchRes').empty();
-        $('#searchRes').removeClass('show');
+        $('#searchRes').empty().removeClass('show');
     }
 });
 $(document).on('click', '#searchRes li', function () {

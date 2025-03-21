@@ -4,7 +4,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/standard',
     center: [73.014641, 19.126813], // [lng, lat]
-    zoom: 6,
+    zoom: 5,
     cooperativeGestures: false,
     attributionControl: true,
     boxZoom: true,
@@ -86,15 +86,13 @@ map.on('mousemove', (e) => {
 
     $('#longVal').html(roundNum(e.lngLat.lng, 5));
     $('#latVal').html(roundNum(e.lngLat.lat, 5));
-});
-
-map.on('zoom', function () {
-    $('#zoomLvl').html(roundNum(map.getZoom(), 2));
-});
+})
+    .on('zoom', function () {
+        $('#zoomLvl').html(roundNum(map.getZoom(), 2));
+    });
 
 const coordinatesGeocoder = function (query) {
-    // Match anything which looks like
-    // decimal degrees coordinate pair.
+    // Match anything which looks like decimal degrees coordinate pair.
     const matches = query.match(
         /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Long: )?(-?\d+\.?\d*)[ ]*$/i
     );
@@ -120,18 +118,15 @@ const coordinatesGeocoder = function (query) {
     const coord2 = Number(matches[2]);
     const geocodes = [];
 
-    if (coord1 < -90 || coord1 > 90) {
-        // lng, lat
+    if (coord1 < -90 || coord1 > 90) {  // lng, lat
         geocodes.push(coordinateFeature(coord1, coord2));
     }
 
-    if (coord2 < -90 || coord2 > 90) {
-        // lat, lng
+    if (coord2 < -90 || coord2 > 90) {  // lat, lng
         geocodes.push(coordinateFeature(coord2, coord1));
     }
 
-    if (geocodes.length === 0) {
-        // either lng, lat or lat, lng
+    if (geocodes.length === 0) {    // either lng, lat or lat, lng
         geocodes.push(coordinateFeature(coord1, coord2));
         geocodes.push(coordinateFeature(coord2, coord1));
     }
@@ -162,16 +157,47 @@ map.addControl(new MapboxGeocoder({
     showZoom: true,
     visualizePitch: true
 })
-).addControl(new mapboxgl.FullscreenControl()
-).addControl(new mapboxgl.ScaleControl()
-);
+).addControl(new mapboxgl.FullscreenControl()).addControl(new mapboxgl.ScaleControl());
+
+class zoomLvl {
+    onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('div');
+        this._container.className = 'mapboxgl-ctrl';
+        this._container.innerHTML = '<h5 data-bs-toggle="tooltip" title="Zoom Level"><span class="badge bg-black rubik-font" id="zoomLvl">5</h5>';
+        return this._container;
+    }
+    onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+    }
+}
+class lngLatVal {
+    onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('div');
+        this._container.className = 'mapboxgl-ctrl';
+        this._container.innerHTML =
+            '<table class="table table-sm table-bordered table-striped table-hover caption-top table-dark rubik-font">' +
+            // '<caption>Mouse Coordinates</caption>' +
+            '<tbody><tr><td class="w-25 text-center">Long</td><td id="longVal"></td></tr>' +
+            '<tr><td class="text-center">Lat</td><td id="latVal"></td></tr>' +
+            '</tbody></table>';
+        return this._container;
+    }
+    onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+    }
+}
+map.addControl(new zoomLvl(), 'top-right').addControl(new lngLatVal(), 'bottom-right');
 
 $(document).ready(function () {
     $('.mapboxgl-ctrl-geocoder').addClass('rounded-pill');
     $('.mapboxgl-ctrl-geolocate').parent().addClass('rounded-pill');
 });
 
-// Set marker options.
+// Default Marker
 new mapboxgl.Marker({
     color: 'blue',
     draggable: false

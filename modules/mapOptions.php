@@ -12,7 +12,7 @@
     </svg> -->
 </button>
 <!-- <div class="card position-absolute top-0 start-0 mt-1 ms-1 z-3 rubik-font" id="mapOptions"> -->
-<div class="card float-start mt-1 ms-1 z-3 rubik-font d-none" id="mapOptions">
+<div class="card float-start mt-1 ms-1 z-1 rubik-font d-none" id="mapOptions">
     <div class="card-header">
         <span class="d-flex">
             <h6 class="card-title me-auto">Map Style</h6>
@@ -77,7 +77,7 @@
             <input class="form-check-input" type="checkbox" id="serversAbs" checked>
         </li>
     </ul>
-    <table class="card-header table table-sm table-bordered table-striped table-hover" id="mouseCoord">
+    <!-- <table class="card-header table table-sm table-bordered table-striped table-hover" id="mouseCoord">
         <tbody>
             <tr>
                 <td class="w-25 text-center">Long</td>
@@ -92,7 +92,7 @@
                 <td id="zoomLvl">6</td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
     <div class="card-footer">
         <span class="d-flex">
             <h6 class="card-title me-auto mb-0" id="mapLabelsToggle" role="button" data-bs-toggle="collapse"
@@ -143,7 +143,7 @@
     </ul>
 </div>
 <form class="position-absolute start-50 translate-middle-x mt-1 z-1" id="searchForm">
-    <fieldset class="input-group rounded-pill shadow">
+    <fieldset class="input-group input-group-sm rounded-pill shadow">
         <span class="input-group-text rounded-start-pill">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
                 viewBox="0 0 16 16">
@@ -151,7 +151,7 @@
                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
             </svg></span>
         <input type="search" class="form-control rounded-end-pill" id="search" minlength="11"
-            placeholder="IPv6 (Min. 10 Char.)">
+            placeholder="IPv6 (No Colons; Min. 10 Char.)">
     </fieldset>
     <ul class="dropdown-menu overflow-auto shadow" id="searchRes" style="max-height: 14rem;">
     </ul>
