@@ -3,8 +3,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibmlsYXlyaWwiLCJhIjoiY2x3NmhieTZqMW9sYTJqcGQ3Y
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/standard',
-    center: [73.014641, 19.126813], // [lng, lat]
-    zoom: 5,
+    center: [79.9338403201581, 23.1680847713300], // [lng, lat Jabalpur]
+    zoom: 4,
     cooperativeGestures: false,
     attributionControl: true,
     boxZoom: true,
@@ -179,7 +179,7 @@ class lngLatVal {
         this._container.className = 'mapboxgl-ctrl';
         this._container.innerHTML =
             '<table class="table table-sm table-bordered table-striped table-hover caption-top table-dark rubik-font">' +
-            // '<caption>Mouse Coordinates</caption>' +
+            '<caption class="bg-white bg-opacity-50"><i class="bi bi-mouse3-fill me-1"></i>Pointer Coordinates</caption>' +
             '<tbody><tr><td class="w-25 text-center">Long</td><td id="longVal"></td></tr>' +
             '<tr><td class="text-center">Lat</td><td id="latVal"></td></tr>' +
             '</tbody></table>';
