@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    const copyIcon = '<i class="bi bi-clipboard-fill"></i>';
-    const copiedIcon = '<i class="bi bi-clipboard-check-fill"></i>';
+    const copyIcon = '<i class="bi bi-clipboard me-1"></i>';
+    const copiedIcon = '<i class="bi bi-clipboard-check me-1"></i>';
 
     <?php $query = "SELECT * FROM cities";
     $result = mysqli_query($db, $query);
@@ -14,8 +14,10 @@
 
         marker<?php echo $data['Idx']; ?>.innerHTML = '<div class="card-header">' +
             '<h5 class="card-title" style="color: #FF671F;"><?php echo $data['City']; ?></h5>' +
-            '<div class="d-flex justify-content-evenly">Long: <?php echo round($data['Lng'], 5); ?>' +
-            '<div class="vr"></div>Lat: <?php echo round($data['Lat'], 5); ?></div>' +
+            '<div class="d-flex justify-content-evenly"><span id="lng<?php echo $data['Idx']; ?>">' + copyIcon +
+            'Long: <?php echo round($data['Lng'], 5); ?></span>' +
+            '<span class="vr mx-2"></span><span id="lat<?php echo $data['Idx']; ?>">' + copyIcon +
+            'Lat: <?php echo round($data['Lat'], 5); ?></span></div>' +
             '</div><!--<div id="carouselExample" class="carousel carousel-dark slide">' +
             '<div class="carousel-inner"><div class="carousel-item active">' +
             '<img src="pink_blue_red_oil_paint_abstraction_4k_8k_hd_abstract.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item">' +
@@ -55,8 +57,8 @@
         $(document).on('click', '#lng<?php echo $data['Idx']; ?>', function () {
             var This = $(this);
             var oldText = This.html();
-            This.html(copiedIcon + ' Copied!');
-            This.attr('disabled', 'disabled');
+            This.html(copiedIcon + 'Copied!');
+            This.prop('disabled', 'true');
             navigator.clipboard.writeText('<?php echo $data['Lng']; ?>');
             setTimeout(function () {
                 This.html(oldText);
@@ -66,8 +68,8 @@
         $(document).on('click', '#lat<?php echo $data['Idx']; ?>', function () {
             var This = $(this);
             var oldText = This.html();
-            This.html(copiedIcon + ' Copied!');
-            This.attr('disabled', 'disabled');
+            This.html(copiedIcon + 'Copied!');
+            This.prop('disabled', 'true');
             navigator.clipboard.writeText('<?php echo $data['Lat']; ?>');
             setTimeout(function () {
                 This.html(oldText);
