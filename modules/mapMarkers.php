@@ -1,6 +1,5 @@
 <script type="text/javascript">
-    const copyIcon = '<i class="bi bi-clipboard me-1"></i>';
-    const copiedIcon = '<i class="bi bi-clipboard-check me-1"></i>';
+    const copyIcon = '<i class="bi bi-clipboard me-1"></i>', copiedIcon = '<i class="bi bi-clipboard-check me-1"></i>';
 
     <?php $query = "SELECT * FROM cities";
     $result = mysqli_query($db, $query);
@@ -14,9 +13,9 @@
 
         marker<?php echo $data['Idx']; ?>.innerHTML = '<div class="card-header">' +
             '<h5 class="card-title" style="color: #FF671F;"><?php echo $data['City']; ?></h5>' +
-            '<div class="d-flex justify-content-evenly"><span id="lng<?php echo $data['Idx']; ?>">' + copyIcon +
+            '<div class="d-flex justify-content-evenly"><span id="lng<?php echo $data['Idx']; ?>" role="button">' + copyIcon +
             'Long: <?php echo round($data['Lng'], 5); ?></span>' +
-            '<span class="vr mx-2"></span><span id="lat<?php echo $data['Idx']; ?>">' + copyIcon +
+            '<span class="vr mx-2"></span><span id="lat<?php echo $data['Idx']; ?>" role="button">' + copyIcon +
             'Lat: <?php echo round($data['Lat'], 5); ?></span></div>' +
             '</div><!--<div id="carouselExample" class="carousel carousel-dark slide">' +
             '<div class="carousel-inner"><div class="carousel-item active">' +
@@ -57,23 +56,19 @@
         $(document).on('click', '#lng<?php echo $data['Idx']; ?>', function () {
             var This = $(this);
             var oldText = This.html();
-            This.html(copiedIcon + 'Copied!');
-            This.prop('disabled', 'true');
+            This.html(copiedIcon + 'Copied!').prop('disabled', 'true').css('pointer-events', 'none');
             navigator.clipboard.writeText('<?php echo $data['Lng']; ?>');
             setTimeout(function () {
-                This.html(oldText);
-                This.removeAttr('disabled');
+                This.html(oldText).removeAttr('disabled').css('pointer-events', '');
             }, 2000);
         });
         $(document).on('click', '#lat<?php echo $data['Idx']; ?>', function () {
             var This = $(this);
             var oldText = This.html();
-            This.html(copiedIcon + 'Copied!');
-            This.prop('disabled', 'true');
+            This.html(copiedIcon + 'Copied!').prop('disabled', 'true').css('pointer-events', 'none');
             navigator.clipboard.writeText('<?php echo $data['Lat']; ?>');
             setTimeout(function () {
-                This.html(oldText);
-                This.removeAttr('disabled');
+                This.html(oldText).removeAttr('disabled').css('pointer-events', '');
             }, 2000);
         });
 
