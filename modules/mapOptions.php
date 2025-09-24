@@ -1,6 +1,5 @@
 <button class="btn btn-sm btn-primary position-relative float-start mt-1 ms-1 z-1 shadow" id="showOpt"
-    data-bs-toggle="tooltip" title="Show Map Options"><i class="bi bi-list"
-        style="font-size: medium; line-height: 0"></i>
+    data-bs-toggle="tooltip" title="Show Map Options"><i class="bi bi-list" style="font-size: medium;"></i>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
         viewBox="0 0 448 512">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
         <path
@@ -123,8 +122,7 @@
 <form class="position-absolute start-50 translate-middle-x mt-1 z-1" id="searchForm">
     <fieldset class="input-group input-group-sm rounded-pill shadow">
         <span class="input-group-text rounded-start-pill"><i class="bi bi-search"></i></span>
-        <input type="search" class="form-control rounded-end-pill" id="search" minlength="11"
-            placeholder="IPv6 (No Colons; Min. 10 Char.)">
+        <input type="search" class="form-control rounded-end-pill" id="search" minlength="19" placeholder="Search IPv6">
     </fieldset>
     <ul class="dropdown-menu overflow-auto shadow" id="searchRes" style="max-height: 14rem;">
     </ul>

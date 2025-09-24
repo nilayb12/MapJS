@@ -3,7 +3,7 @@
 if (isset($_POST['term'])) {
     $term = strtoupper($_POST['term']);
     // $query = "SELECT * FROM global_search('$term')";
-    $query = "SELECT City, Lng, Lat FROM cities WHERE Idx IN (SELECT CityIdx FROM servers WHERE IPv6 LIKE '$term%')";
+    $query = "SELECT City, Lng, Lat FROM cities WHERE Idx IN (SELECT CityIdx FROM servers WHERE IPv6 LIKE '" . bin2hex(inet_pton($term)) . "%')";
     $result = mysqli_query($db, $query);
 
     if (mysqli_num_rows($result) > 0) {
