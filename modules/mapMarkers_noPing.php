@@ -26,14 +26,13 @@
             else {
                 echo '<table class="card-body table table-sm table-bordered table-striped table-hover table-group-divider mb-0">' .
                     '<caption><i class="bi bi-info-circle-fill me-1"></i>Click an IP to Copy its Value.</caption>' .
-                    '<thead><tr><th>Server</th><!--<th>Mgmt IP</th>--><th>IPv6</th><th>Status</th></tr></thead><tbody class="table-group-divider">';
+                    '<thead><tr><th>Server</th><!--<th>Mgmt IP</th>--><th>IPv6</th></tr></thead><tbody class="table-group-divider">';
                 while ($data1 = mysqli_fetch_assoc($result1)) {
                     echo '<tr><td>' . $data1['Server'] . '</td><!--<td><button class="btn btn-sm" ' .
                         'onclick="navigator.clipboard.writeText(`' . inet_ntop(hex2bin($data1['MgmtIP'])) . '`);">' .
                         inet_ntop(hex2bin($data1['MgmtIP'])) . '</button></td>--><td><button class="btn btn-sm" ' .
                         'onclick="navigator.clipboard.writeText(`' . inet_ntop(hex2bin($data1['IPv6'])) . '`);">' .
-                        inet_ntop(hex2bin($data1['IPv6'])) . '</button></td><td><span class="ping-status" ' .
-                        'data-host="' . inet_ntop(hex2bin($data1['IPv6'])) . '">Checking...</span></td></tr>';
+                        inet_ntop(hex2bin($data1['IPv6'])) . '</button></td></tr>';
                 }
                 echo '</tbody></table>';
             }
@@ -71,7 +70,7 @@
             closeButton: true,
             closeOnClick: true,
             closeOnMove: false,
-            maxWidth: '400px'
+            maxWidth: '300px'
         }).setDOMContent(marker<?php echo $data['Idx']; ?>)
         ).addTo(map);
         <?php

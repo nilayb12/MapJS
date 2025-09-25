@@ -37,3 +37,34 @@ $(document).on('click', '#searchRes li', function () {
     $('#search').val(searchRes);
     $('#searchRes').empty().removeClass('show');
 });
+
+function updatePingStatuses() {
+    $('.ping-status').each(function () {
+        const $el = $(this);
+        const host = $el.data('host');
+
+        $.ajax({
+            url: 'modules/ping.php',
+            method: 'POST',
+            data: { host: host },
+            dataType: 'json',
+            success: function (data) {
+                if (data.status === "online") {
+                    $el.text(data.latency + " ms").css('color', 'green');
+                } else if (data.status === "offline") {
+                    $el.text("Offline").css('color', 'red');
+                } else {
+                    $el.text("Error").css('color', 'gray');
+                    console.error("Ping debug:", data);
+                }
+            },
+            error: function (xhr, status, err) {
+                $el.text("Error").css('color', 'gray');
+                console.error("Fetch failed:", err);
+            }
+        });
+    });
+}
+
+// start polling
+setInterval(updatePingStatuses, 2000);
