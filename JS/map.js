@@ -164,7 +164,7 @@ class zoomLvl {
         this._map = map;
         this._container = document.createElement('div');
         this._container.className = 'mapboxgl-ctrl';
-        this._container.innerHTML = '<h5 data-bs-toggle="tooltip" title="Zoom Level"><span class="badge bg-black rubik-font" id="zoomLvl">5</h5>';
+        this._container.innerHTML = '<h5 data-bs-toggle="tooltip" title="Zoom Level"><span class="badge bg-black rubik-font" id="zoomLvl">4</h5>';
         return this._container;
     }
     onRemove() {

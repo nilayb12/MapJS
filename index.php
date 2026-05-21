@@ -16,7 +16,9 @@
     <!-- <link rel="stylesheet"
         href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.css"
         type="text/css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-geocoder@5.1.2/dist/mapbox-gl-geocoder.css" integrity="sha256-+ysQczq0ZTGoBw6DsFGi/RAIoQTsO4KdjPXNRqreJl8=" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-geocoder@5.1.2/dist/mapbox-gl-geocoder.css"
+        integrity="sha256-+ysQczq0ZTGoBw6DsFGi/RAIoQTsO4KdjPXNRqreJl8=" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -27,14 +29,17 @@
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha256-5P1JGBOIxI7FBAvT/mb1fCnI5n/NhQKzNUuW7Hq0fMc=" crossorigin="anonymous"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.24.0/mapbox-gl.js"></script>
     <!-- <script
         src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.1.0/mapbox-gl-geocoder.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-geocoder@5.1.2/dist/mapbox-gl-geocoder.min.js" integrity="sha256-DZAVZrQqWa3b3ma/Csuj5Czkm25vJyBFymuuzlJyzLM=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7.3.5/turf.min.js" integrity="sha256-UF06NdqKi/H4rtWQza0P+hHnDVHyjQwjWQB7r+0P04I=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-geocoder@5.1.2/dist/mapbox-gl-geocoder.min.js"
+        integrity="sha256-DZAVZrQqWa3b3ma/Csuj5Czkm25vJyBFymuuzlJyzLM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7.3.5/turf.min.js"
+        integrity="sha256-UF06NdqKi/H4rtWQza0P+hHnDVHyjQwjWQB7r+0P04I=" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/@mapbox-controls/ruler@1.2.0/src/index.min.js"></script> -->
     <!-- <script src="JS/colorToggle.js"></script> -->
     <div id="map">
