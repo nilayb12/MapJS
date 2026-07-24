@@ -1,0 +1,76 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover' }));
+
+function roundNum(num, precision) {
+    return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
+}
+function mapFlyTo(long, lat) {
+    map.flyTo({ center: [long, lat], zoom: 15 });
+}
+
+$('#showOpt').click(function () {
+    // Dismiss the hover tooltip before hiding the button; otherwise Bootstrap leaves
+    // the tooltip node orphaned on screen (the "Show Map Options" label stays stuck).
+    const tip = bootstrap.Tooltip.getInstance(this);
+    if (tip) tip.hide();
+    $('#mapOptions').removeClass('d-none');
+    $(this).addClass('d-none');
+});
+$('#hideOpt').click(function () {
+    const tip = bootstrap.Tooltip.getInstance(this);
+    if (tip) tip.hide();
+    $('#mapOptions').addClass('d-none');
+    $('#showOpt').removeClass('d-none');
+});
+
+$('#search').on('input', function () {
+    var searchVal = $(this).val();
+    if (searchVal.length >= $(this).attr('minlength')) {
+        $.ajax({
+            type: "POST",
+            url: "modules/search.php",
+            data: { term: searchVal },
+            success: function (data) {
+                $('#searchRes').html(data).addClass('show');
+            }
+        });
+    } else {
+        $('#searchRes').empty().removeClass('show');
+    }
+});
+$(document).on('click', '#searchRes li', function () {
+    var searchRes = $(this).text();
+    $('#search').val(searchRes);
+    $('#searchRes').empty().removeClass('show');
+});
+
+function updatePingStatuses() {
+    $('.ping-status').each(function () {
+        const $el = $(this);
+        const host = $el.data('host');
+
+        $.ajax({
+            url: 'modules/ping.php',
+            method: 'POST',
+            data: { host: host },
+            dataType: 'json',
+            success: function (data) {
+                if (data.status === "online") {
+                    $el.text(data.latency + " ms").css('color', 'green');
+                } else if (data.status === "offline") {
+                    $el.text("Offline").css('color', 'red');
+                } else {
+                    $el.text("Error").css('color', 'gray');
+                    console.error("Ping debug:", data);
+                }
+            },
+            error: function (xhr, status, err) {
+                $el.text("Error").css('color', 'gray');
+                console.error("Fetch failed:", err);
+            }
+        });
+    });
+}
+
+// start polling
+setInterval(updatePingStatuses, 2000);
